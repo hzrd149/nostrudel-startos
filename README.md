@@ -1,6 +1,10 @@
-# Wrapper for hello-world
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hzrd149/nostrudel/next/screenshots/icon.svg" alt="Project Logo" width="21%">
+</p>
 
-Hello World is a simple, minimal project that serves as a template for creating a service that runs on StartOS. This repository creates the `s9pk` package that is installed to run `hello-world` on [StartOS](https://github.com/Start9Labs/start-os/). Learn more about service packaging in the [Developer Docs](https://start9.com/latest/developer-docs/).
+# noStrudel for StartOS 
+
+[noStrudel](https://github.com/hzrd149/nostrudel) is a Nostr web client for a explorting the nostr network. This repository creates the s9pk package that is installed to run noStrudel on StartOS.
 
 ## Dependencies
 
