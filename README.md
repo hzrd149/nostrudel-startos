@@ -28,13 +28,13 @@ cd nostrudel-startos
 
 ## Building
 
-To build the `hello-world` package for all platforms using start-sdk, run the following command:
+To build the `nostrudel` package for all platforms using start-sdk, run the following command:
 
 ```
 make
 ```
 
-To build the `hello-world` package for a single platform using start-sdk, run:
+To build the `nostrudel` package for a single platform using start-sdk, run:
 
 ```
 # for amd64
@@ -54,7 +54,7 @@ Run the following commands to determine successful install:
 ```
 start-cli auth login
 # Enter your StartOS password
-start-cli --host https://server-name.local package install hello-world.s9pk
+start-cli --host https://server-name.local package install nostrudel.s9pk
 ```
 
 If you already have your `start-cli` config file setup with a default `host`, you can install simply by running:
@@ -63,10 +63,10 @@ If you already have your `start-cli` config file setup with a default `host`, yo
 make install
 ```
 
-> **Tip:** You can also install the hello-world.s9pk using **Sideload Service** under the **System > Manage** section.
+> **Tip:** You can also install the nostrudel.s9pk using **Sideload Service** under the **System > Manage** section.
 
 ### Verify Install
 
-Go to your StartOS Services page, select **Hello World**, configure and start the service. Then, verify its interfaces are accessible.
+Go to your StartOS Services page, select **noStrudel**, configure and start the service. Then, verify its interfaces are accessible.
 
 **Done!**

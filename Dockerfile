@@ -1,11 +1,16 @@
-FROM alpine:3.17
+# syntax=docker/dockerfile:1
+FROM node:20 as builder
 
-RUN apk update
-RUN apk add --no-cache tini && \
-    rm -f /var/cache/apk/*
+WORKDIR /app
+COPY ./nostrudel /app/
 
-ARG ARCH
-ADD ./hello-world/target/${ARCH}-unknown-linux-musl/release/hello-world /usr/local/bin/hello-world
-RUN chmod +x /usr/local/bin/hello-world
+ENV VITE_COMMIT_HASH=""
+ENV VITE_APP_VERSION="Start9-OS"
+RUN yarn install && yarn build
+
+FROM nginx:stable-alpine-slim
+EXPOSE 8080
+COPY --from=builder /app/dist /usr/share/nginx/html
+
 ADD ./docker_entrypoint.sh /usr/local/bin/docker_entrypoint.sh
 RUN chmod a+x /usr/local/bin/docker_entrypoint.sh
