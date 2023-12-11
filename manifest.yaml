@@ -5,7 +5,7 @@ id: nostrudel
  # A human readable service title
 title: "noStrudel"
 # Service version - accepts up to four digits, where the last confirms to revisions necessary for StartOS - see documentation: https://github.com/Start9Labs/emver-rs. This value will change with each release of the service.
-version: 0.37.0.1
+version: 0.37.1.0
 # Release notes for the update - can be a string, paragraph or URL
 release-notes: "Revamped for EmabssyOS 0.3.3"
 # The type of license for the project. Include the LICENSE in the root of the project directory. A license is required for a Start9 package.
