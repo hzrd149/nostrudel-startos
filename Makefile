@@ -5,7 +5,7 @@ TS_FILES := $(shell find ./ -name \*.ts)
 # delete the target of a rule if it has changed and its recipe exits with a nonzero exit status
 .DELETE_ON_ERROR:
 
-all: verify
+all: submodule-update verify
 
 verify: $(PKG_ID).s9pk
 	@start-sdk verify s9pk $(PKG_ID).s9pk
@@ -27,6 +27,14 @@ clean:
 clean-manifest:
 	@sed -i '' '/^[[:blank:]]*#/d' manifest.yaml
 	@echo; echo "Comments successfully removed from manifest.yaml file."; echo
+
+submodule-update:
+	@if [ -z "$(shell git submodule status | egrep -v '^ '|awk '{print $2}')" ]; then \
+		echo "\nAll submodules ready for build.\n"; \
+	else \
+		echo "\nPulling submodules...\n"; \
+		git submodule update --init --progress; \
+	fi
 
 scripts/embassy.js: $(TS_FILES)
 	deno bundle scripts/embassy.ts scripts/embassy.js
