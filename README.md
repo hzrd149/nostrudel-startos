@@ -4,7 +4,7 @@
 
 # noStrudel for StartOS
 
-[noStrudel](https://github.com/hzrd149/nostrudel) is a Nostr web client for a explorting the nostr network. This repository creates the s9pk package that is installed to run noStrudel on StartOS.
+[noStrudel](https://github.com/hzrd149/nostrudel) is a Nostr web client for exploring the Nostr network. This repository creates the s9pk package that is installed to run noStrudel on StartOS.
 
 ## Dependencies
 
