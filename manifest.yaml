@@ -5,9 +5,17 @@ id: nostrudel
  # A human readable service title
 title: "noStrudel"
 # Service version - accepts up to four digits, where the last confirms to revisions necessary for StartOS - see documentation: https://github.com/Start9Labs/emver-rs. This value will change with each release of the service.
-version: 0.37.1.0
+version: 0.38.0.0
 # Release notes for the update - can be a string, paragraph or URL
-release-notes: "Revamped for EmabssyOS 0.3.3"
+release-notes: ->
+ - Support for nsecbunker and the new OAuth flow
+ - Added simple "Launchpad" view (most stuff will be added in the future)
+ - Restore scroll position when returning to the timeline
+ - Show unavailable events in threads
+ - Organized all the "other stuff" in a tools page
+ - Added support to cache events in local relays instead of the browsers cache
+ - And a ton more, read them all in the https://github.com/hzrd149/nostrudel/blob/master/CHANGELOG.md#0380 changelog
+
 # The type of license for the project. Include the LICENSE in the root of the project directory. A license is required for a Start9 package.
 license: mit
 # The Start9 wrapper repository URL for the package. This repo contains the manifest file (this), any scripts necessary for configuration, backups, actions, or health checks (more below). This key must exist. But could be embedded into the source repository.
