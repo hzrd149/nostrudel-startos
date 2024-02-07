@@ -1,20 +1,20 @@
-# Example written in yaml (toml and json are also acceptable)
+# Docs: https://docs.start9.com/0.3.5.x/developer-docs/specification/dependencies#advanced-configuration
 
 # The package identifier used by the OS. This must be unique amongst all other known packages
 id: nostrudel
- # A human readable service title
+# A human readable service title
 title: "noStrudel"
 # Service version - accepts up to four digits, where the last confirms to revisions necessary for StartOS - see documentation: https://github.com/Start9Labs/emver-rs. This value will change with each release of the service.
-version: 0.38.1.0
+version: 0.38.2.1
 # Release notes for the update - can be a string, paragraph or URL
 release-notes: ->
- - Support for nsecbunker and the new OAuth flow
- - Added simple "Launchpad" view (most stuff will be added in the future)
- - Restore scroll position when returning to the timeline
- - Show unavailable events in threads
- - Organized all the "other stuff" in a tools page
- - Added support to cache events in local relays instead of the browsers cache
- - And a ton more, read them all in the https://github.com/hzrd149/nostrudel/blob/master/CHANGELOG.md#0380 changelog
+  - Support for nsecbunker and the new OAuth flow
+  - Added simple "Launchpad" view (most stuff will be added in the future)
+  - Restore scroll position when returning to the timeline
+  - Show unavailable events in threads
+  - Organized all the "other stuff" in a tools page
+  - Added support to cache events in local relays instead of the browsers cache
+  - And a ton more, read them all in the https://github.com/hzrd149/nostrudel/blob/master/CHANGELOG.md#0380 changelog
 
 # The type of license for the project. Include the LICENSE in the root of the project directory. A license is required for a Start9 package.
 license: mit
@@ -80,7 +80,11 @@ health-checks:
     name: Web UI
     success-message: noStrudel is ready
     type: script
-config: ~
+config:
+  get:
+    type: script
+  set:
+    type: script
 properties: ~
 #  type: script
 # This denotes any data, asset, or pointer volumes that should be connected when the "docker run" command is invoked
@@ -100,7 +104,7 @@ interfaces:
     # A descriptive description of what the interface does
     description: A user interface that is expected to host noStrudel web app.
     tor-config:
-    # Port mappings are from the external port to the internal container port
+      # Port mappings are from the external port to the internal container port
       port-mapping:
         80: "80"
         443: "3443"
@@ -115,7 +119,14 @@ interfaces:
     protocols:
       - tcp
       - http
-dependencies: {}
+dependencies:
+  nostr:
+    version: ">0.8.0"
+    critical: true
+    requirement:
+      type: "opt-in"
+      how: Can use the browser cache or local relay
+    description: Optionally used to cache events
 # Specifies how backups should be run for this service. The default StartOS provided option is to use the duplicity backup library on a system image (compat)
 backup:
   create:

@@ -3,7 +3,7 @@ name: Release Service
 on:
   push:
     tags:
-      - 'v*.*'
+      - "v*.*"
 
 jobs:
   ReleasePackage:

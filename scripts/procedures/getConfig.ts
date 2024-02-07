@@ -2,4 +2,20 @@
 
 import { compat, types as T } from "../deps.ts";
 
-export const getConfig: T.ExpectedExports.getConfig = compat.getConfig({});
+export const getConfig: T.ExpectedExports.getConfig = compat.getConfig({
+  "enable-cache-relay": {
+    name: "Use local relay for caching",
+    description: "Enables",
+    type: "boolean",
+    default: false,
+  },
+  "cache-relay": {
+    name: "Cache Relay",
+    description: "A local relay to use for caching events",
+    type: "pointer",
+    subtype: "package",
+    "package-id": "nostr",
+    target: "lan-address",
+    interface: "websocket",
+  },
+});
