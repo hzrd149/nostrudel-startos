@@ -5,7 +5,7 @@ id: nostrudel
 # A human readable service title
 title: "noStrudel"
 # Service version - accepts up to four digits, where the last confirms to revisions necessary for StartOS - see documentation: https://github.com/Start9Labs/emver-rs. This value will change with each release of the service.
-version: 0.38.2.1
+version: 0.38.3.0
 # Release notes for the update - can be a string, paragraph or URL
 release-notes: ->
   - Support for nsecbunker and the new OAuth flow
