@@ -8,7 +8,7 @@ export const getConfig: T.ExpectedExports.getConfig = compat.getConfig({
     description:
       "If you enable the option, noStrudel will cache Nostr events on your personal Nostr relay, which is fast and makes the cache available to all your logged in clients. If you disable this option, noStrudel will instead cache Nostr events in the browser's storage, which is slower and does not sync across clients.",
     type: "boolean",
-    default: true,
+    default: false,
   },
   "cache-relay": {
     name: "Cache Relay",
