@@ -1,29 +1,7 @@
 #!/bin/sh
 set -e
 
-cat /root/start9/config.yaml
-
-CACHE_RELAY_ENABLED=$(yq '.enable-cache-relay' /root/start9/config.yaml)
-#CACHE_RELAY=$(yq '.cache-relay' /root/start9/config.yaml)
-CACHE_RELAY=nostr.embassy:8080
-
-PROXY_PASS_BLOCK=""
-if [ -n "$CACHE_RELAY" ] && [ "$CACHE_RELAY_ENABLED" = "true" ]; then
-  echo "Cache relay set to $CACHE_RELAY"
-  sed -i 's/CACHE_RELAY_ENABLED = false/CACHE_RELAY_ENABLED = true/g' /usr/share/nginx/html/index.html
-  PROXY_PASS_BLOCK="$PROXY_PASS_BLOCK
-    location /local-relay {
-      proxy_pass http://$CACHE_RELAY/;
-      proxy_http_version 1.1;
-      proxy_set_header Upgrade \$http_upgrade;
-      proxy_set_header Connection "upgrade";
-    }
-  "
-else
-  echo "No cache relay set"
-fi
-
-echo "Starting noStrudel ..."
+printf "\n\n [i] Starting noStrudel ...\n\n"
 
 CONF_FILE="/etc/nginx/conf.d/default.conf"
 NGINX_CONF="server {
@@ -39,8 +17,6 @@ server {
 
     server_name localhost;
     merge_slashes off;
-
-    $PROXY_PASS_BLOCK
 
     root /usr/share/nginx/html;
     index index.html index.htm;
