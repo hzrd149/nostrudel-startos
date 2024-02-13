@@ -38,11 +38,7 @@ health-checks:
     name: Web UI
     success-message: noStrudel is ready
     type: script
-config:
-  get:
-    type: script
-  set:
-    type: script
+config: ~
 properties: ~
 volumes:
   main:
