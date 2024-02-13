@@ -66,14 +66,7 @@ interfaces:
     protocols:
       - tcp
       - http
-dependencies:
-  nostr:
-    version: ">0.8.0"
-    critical: true
-    requirement:
-      type: "opt-in"
-      how: Can use the browser cache or local relay
-    description: Optionally used to cache events
+dependencies: {}
 backup:
   create:
     type: docker
