@@ -13,7 +13,6 @@ COPY ./nostrudel .
 # Build
 ENV VITE_COMMIT_HASH=""
 ENV VITE_APP_VERSION="Start9-OS"
-ENV ENABLE_CLIENT_TAG="false"
 RUN yarn build
 
 FROM nginx:stable-alpine-slim

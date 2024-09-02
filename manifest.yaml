@@ -1,19 +1,15 @@
 id: nostrudel
 title: "noStrudel"
-version: 0.39.0.0
+version: 0.40.0.0
 release-notes: |
-  - Add "open in" modal (NIP-89)
-  - Add event publisher tool
-  - Added Event Console tool
-  - Add option to automatically decrypt DMs
-  - Add UI tab to relays
-  - Fix custom emoji reactions having multiple colons
-  - Fix jsonl database export format
-  - Fix auto-playing blurred videos
-  - Fix bunker://pubkey connect URIs
-  - Fix profile form removing unknown metadata fields
-  - Unblur all images when clicking on a note
-  - Update emojilib
+  - Add support for NIP-49 (ncryptsec)
+  - Add wiki pages
+  - Add simple article view
+  - Add blindspots discovery feed\
+  - Add support for WASM relay and signature verification
+  - Add blossom media upload option
+  - Add support for native android and ios sharing
+  - Add support for NIP-51 search relay list
 
 license: MIT
 wrapper-repo: "https://github.com/hzrd149/nostrudel-startos"
