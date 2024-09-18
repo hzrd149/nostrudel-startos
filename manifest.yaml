@@ -1,15 +1,31 @@
 id: nostrudel
 title: "noStrudel"
-version: 0.40.0.0
+version: 0.41.0.0
 release-notes: |
-  - Add support for NIP-49 (ncryptsec)
-  - Add wiki pages
-  - Add simple article view
-  - Add blindspots discovery feed\
-  - Add support for WASM relay and signature verification
-  - Add blossom media upload option
-  - Add support for native android and ios sharing
-  - Add support for NIP-51 search relay list
+  ### Minor Changes
+
+  - Add option to wipe wasm relay database
+  - Update `@snort/worker-relay` WASM relay
+  - Add Support for embedding HLS videos
+  - Support pinning articles
+  - Add relay discovery map
+  - Add option to disable keyboard shortcuts
+
+  ### Patch Changes
+
+  - Fixed search results not being cached
+  - Fix amber signer missing pubkey
+  - Fix some tidal embeds not playing
+  - Hide avatars of muted users
+  - Fix bookmark view not showing latest bookmarks
+  - Fixed client sending filters with empty #a tags
+  - Fix client tag breaking POW on notes
+  - Add noStrudel NIP-05 to domain
+  - Update bitcoin connect
+  - Fix relay notes showing notes from other relays from cache
+  - Improve notifications timeline rendering performance
+  - Add bookmark button to articles
+  - Fixed keyboard shortcuts activating when replying to notification
 
 license: MIT
 wrapper-repo: "https://github.com/hzrd149/nostrudel-startos"
