@@ -39,8 +39,4 @@ RUN apk update && \
     apk add --no-cache yq && \
     rm -rf /var/cache/apk/*
 
-EXPOSE 8080
 COPY --from=build /app/dist /usr/share/nginx/html
-
-ADD ./docker_entrypoint.sh /usr/local/bin/docker_entrypoint.sh
-RUN chmod a+x /usr/local/bin/docker_entrypoint.sh
