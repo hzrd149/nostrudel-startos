@@ -17,29 +17,6 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
     'primary',
   )
 
-  const useCache = await sdk.store
-    .getOwn(effects, sdk.StorePath.useCache)
-    .const()
-
-  let proxyPassBlock = ''
-
-  if (useCache) {
-    proxyPassBlock = `
-      location /local-relay {
-        proxy_pass http://nostr.startos:8080/;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade \$http_upgrade;
-        proxy_set_header Connection "upgrade";
-      }`
-
-    await primaryContainer.exec([
-      'sed',
-      '-i',
-      's/CACHE_RELAY_ENABLED = false/CACHE_RELAY_ENABLED = true/g',
-      '/usr/share/nginx/html/index.html',
-    ])
-  }
-
   await writeFile(
     primaryContainer.rootfs + '/etc/nginx/conf.d/default.conf',
     `
@@ -56,8 +33,6 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
 
         server_name localhost;
         merge_slashes off;
-
-        ${proxyPassBlock}
 
         root /usr/share/nginx/html;
         index index.html index.htm;

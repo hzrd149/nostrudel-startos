@@ -35,12 +35,5 @@ export const manifest = setupManifest({
     start: null,
     stop: null,
   },
-  dependencies: {
-    'nostr-rs-relay': {
-      optional: true,
-      description:
-        'Optionally use your self-hosted Nostr RS Relay as a cache server for noStrudel',
-      s9pk: 'https://github.com/start9labs/nostr-rs-relay-startos/releases/....s9pk', // @TODO
-    },
-  },
+  dependencies: {},
 })
