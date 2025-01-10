@@ -1,5 +1,5 @@
 import { sdk } from './sdk'
-import { SubContainer, T } from '@start9labs/start-sdk'
+import { T } from '@start9labs/start-sdk'
 import { uiPort } from './utils'
 import { writeFile } from 'fs/promises'
 
@@ -11,7 +11,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    */
   console.info('Starting noStrudel!')
 
-  const primaryContainer = await SubContainer.of(
+  const primaryContainer = await sdk.SubContainer.of(
     effects,
     { id: 'nostrudel' },
     'primary',
