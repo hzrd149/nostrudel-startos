@@ -19,10 +19,7 @@ export const manifest = setupManifest({
   images: {
     nostrudel: {
       source: {
-        dockerBuild: {
-          dockerfile: 'Dockerfile',
-          workdir: '.',
-        },
+        dockerTag: 'ghcr.io/hzrd149/nostrudel:0.42.0',
       },
     },
   },
