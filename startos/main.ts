@@ -13,7 +13,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
 
   const primaryContainer = await sdk.SubContainer.of(
     effects,
-    { id: 'nostrudel' },
+    { imageId: 'nostrudel' },
     'primary',
   )
 
