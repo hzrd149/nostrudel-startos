@@ -14,7 +14,6 @@ export const manifest = setupManifest({
     short: 'A simple web client focused on exploring nostr',
     long: `noStrudel is a web app for exploring the nostr protocol. The goal of this project is to build a nostr client that lets a user explore the nostr protocol by showing as much information as possible and letting the user view the underlying events.`,
   },
-  assets: [],
   volumes: ['main'],
   images: {
     nostrudel: {
