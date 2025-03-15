@@ -1,5 +1,5 @@
 import { sdk } from './sdk'
-import { SubContainer, T } from '@start9labs/start-sdk'
+import { T } from '@start9labs/start-sdk'
 import { uiPort } from './utils'
 import { writeFile } from 'fs/promises'
 
@@ -11,34 +11,11 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    */
   console.info('Starting noStrudel!')
 
-  const primaryContainer = await SubContainer.of(
+  const primaryContainer = await sdk.SubContainer.of(
     effects,
-    { id: 'nostrudel' },
+    { imageId: 'nostrudel' },
     'primary',
   )
-
-  const useCache = await sdk.store
-    .getOwn(effects, sdk.StorePath.useCache)
-    .const()
-
-  let proxyPassBlock = ''
-
-  if (useCache) {
-    proxyPassBlock = `
-      location /local-relay {
-        proxy_pass http://nostr.startos:8080/;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade \$http_upgrade;
-        proxy_set_header Connection "upgrade";
-      }`
-
-    await primaryContainer.exec([
-      'sed',
-      '-i',
-      's/CACHE_RELAY_ENABLED = false/CACHE_RELAY_ENABLED = true/g',
-      '/usr/share/nginx/html/index.html',
-    ])
-  }
 
   await writeFile(
     primaryContainer.rootfs + '/etc/nginx/conf.d/default.conf',
@@ -56,8 +33,6 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
 
         server_name localhost;
         merge_slashes off;
-
-        ${proxyPassBlock}
 
         root /usr/share/nginx/html;
         index index.html index.htm;
@@ -109,7 +84,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    *
    * In this section, we define *additional* health checks beyond those included with each daemon (below).
    */
-  const healthReceipts: T.HealthReceipt[] = []
+  const healthReceipts: T.HealthCheck[] = []
 
   /**
    * ======================== Daemons ========================
