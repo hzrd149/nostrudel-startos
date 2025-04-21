@@ -11,14 +11,15 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    */
   console.info('Starting noStrudel!')
 
-  const primaryContainer = await sdk.SubContainer.of(
+  const nostrudelSub = await sdk.SubContainer.of(
     effects,
     { imageId: 'nostrudel' },
-    'primary',
+    sdk.Mounts.of().addVolume('main', null, '/data', false),
+    'nostrudel-sub',
   )
 
   await writeFile(
-    primaryContainer.rootfs + '/etc/nginx/conf.d/default.conf',
+    nostrudelSub.rootfs + '/etc/nginx/conf.d/default.conf',
     `
     server {
         listen 80;
@@ -94,9 +95,8 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    * Each daemon defines its own health check, which can optionally be exposed to the user.
    */
   return sdk.Daemons.of(effects, started, healthReceipts).addDaemon('primary', {
-    subcontainer: primaryContainer,
+    subcontainer: nostrudelSub,
     command: ['nginx', '-g', 'daemon off;'],
-    mounts: sdk.Mounts.of().addVolume('main', null, '/data', false),
     ready: {
       display: 'Web Interface',
       fn: () =>
