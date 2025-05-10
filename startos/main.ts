@@ -14,7 +14,12 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
   const nostrudelSub = await sdk.SubContainer.of(
     effects,
     { imageId: 'nostrudel' },
-    sdk.Mounts.of().addVolume('main', null, '/data', false),
+    sdk.Mounts.of().mountVolume({
+      volumeId: 'main',
+      subpath: null,
+      mountpoint: '/data',
+      readonly: false,
+    }),
     'nostrudel-sub',
   )
 
