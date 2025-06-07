@@ -7,7 +7,7 @@ export const v_0_4_2_0_1 = VersionInfo.of({
   migrations: {
     up: async ({ effects }) => {
       // remove old start9 dir
-      await rmdir('/data/start9')
+      await rmdir('/media/startos/volumes/main/start9')
     },
     down: IMPOSSIBLE,
   },

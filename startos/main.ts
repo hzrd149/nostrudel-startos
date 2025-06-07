@@ -101,7 +101,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    */
   return sdk.Daemons.of(effects, started, healthReceipts).addDaemon('primary', {
     subcontainer: nostrudelSub,
-    command: ['nginx', '-g', 'daemon off;'],
+    exec: { command: ['nginx', '-g', 'daemon off;'] },
     ready: {
       display: 'Web Interface',
       fn: () =>
