@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1
-FROM node:20 AS base
+FROM node:20-alpine AS base
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
+RUN npm install -g pnpm@9.14.4
 
 WORKDIR /app
 
@@ -22,6 +22,9 @@ ARG COMMIT_HASH=""
 ARG APP_VERSION="Start9-OS"
 ENV VITE_COMMIT_HASH="$COMMIT_HASH"
 ENV VITE_APP_VERSION="$APP_VERSION"
+
+# Set Node.js memory limit for build process
+ENV NODE_OPTIONS="--max-old-space-size=4096"
 
 # Copy application files
 COPY ./nostrudel/tsconfig.json .
