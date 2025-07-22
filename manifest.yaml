@@ -1,38 +1,20 @@
 id: nostrudel
 title: "noStrudel"
-version: 0.44.1
+version: 0.45.0.0
 release-notes: |
-  ### Major Changes
+  ### Minor Changes
+  * Add setting for NIP-17 DM relays
+  * Support NIP-17 group messages
+  * Add NIP-17 message inbox for decrypting messages
+  * Show NIP-17 messages in direct message view
+  * Add messages cache for direct messages
+  * Add DM conversation info drawer
+  * Redesign direct messages UI
+  * Add profile editor to settings
+  * Add preview to profile editor
 
-  - Brand new wallet features: Easily send, receive, and manage tokens, with new buttons and improved balance display.
-  - Improved account management: See existing accounts on sign-in, simplified account switching, and a new "Migrate to signing device" option.
-  - Enhanced media experience: Updated emoji picker, better media post views, and fixes for image uploads.
-  - Podcast and file support: Prototype podcast views added, plus simple file views and comments.
-  - Relay chat: Basic relay chat views and improved relay settings for smoother connections.
-  - Accessibility improvements: Easier navigation and improved layouts for better usability.
-  - More ways to interact: Add comments under badges, reaction buttons on notes and replies, and support for NIP-22 article comments.
-  - Social graph updates: Download your social graph on setup, new settings to manage mutes and content policies, and an option to clear your social graph.
-  - Service worker upgrades: Improved offline support, background worker settings, and the ability to view cached files.
-  - Performance and bug fixes: Faster loading, scroll restoration, and many small fixes for a smoother experience.
-
-  ### Notable Fixes & Tweaks
-
-  - Fixed issues with uploading blank images and picture posts.
-  - Improved notifications, including quote notifications and mute list handling.
-  - Fixed layout and scrolling bugs throughout the app.
-  - Fixed issues with multiple extension accounts and account switching.
-  - Accessibility improvements across various views.
-  - Updated dependencies for better performance and stability.
-
-  ### Other Improvements
-
-  - New settings for content policies and proactive authorization.
-  - Added support modal for easier help and feedback.
-  - Added a 404 page for missing content.
-  - Cleaner layouts for profiles, channels, and lists.
-  - Enhanced timeline views with max width and height options.
-  - Improved badge, group, and channel management.
-  - Many under-the-hood updates for reliability and future features.
+  ### Patch Changes
+  * Remove unused dependencies
 license: MIT
 wrapper-repo: "https://github.com/hzrd149/nostrudel-startos"
 upstream-repo: "https://github.com/hzrd149/nostrudel"
